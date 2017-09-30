@@ -16,13 +16,77 @@ let PLAYERS = [
   },
 ];
 
+const Header = props => {
+  return(
+    <div className="header">
+    <table>
+      <tbody>
+      <tr>
+        <td>
+          <p>PLAYERS:{props.players.length}</p>
+          <p>TOTAL POINTS: {props.score}</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <h1> Scoreboard</h1>
+    <div className="stopwatch">
+        <h2>STOPWHATCH</h2>
+        <p className="stopwatch-time">0</p>
+        <button className="">START</button>
+        <button>RESET</button>
+    </div>
+    </div>
+  )
+}
 
+function divList(list){
+  return(
+    list.map((value, position) =>{
+      return(
+        <div>
+          <div key={position}>
+            <div className="player">
+              <div className="player-name">{value.name}</div>
+              <div className="player-score counter">
+                <div className="counter-action decrement">-</div>
+                <div className="counter-score">{value.score}</div>
+                <div className="counter-action increment">+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    })
+  )
+}
+
+const PlayerList = props => {
+  return(
+    <div>  
+      {divList(props.players)}
+    </div>
+  )
+}
+
+const PlayerForm = props => {
+  return(
+    <div className="add-player-form">
+      <form action="">
+        <input placeholder="Enter a name"></input>
+      <button>ADD PLAYER</button>
+      </form>
+    </div>
+  )
+}
 
 const Application = ({title, players}) => {
    return (
-      <Header players={players}/>
-      <PlayerList players={players}/>
-      <PlayerForm />      
+     <div className ="scoreboard">
+      <Header className="header" players={players}/>
+      <PlayerList className="stats" players={players}/>
+      <PlayerForm />
+      </div>      
    ) ;
 }
 
