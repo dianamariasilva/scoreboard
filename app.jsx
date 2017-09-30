@@ -73,8 +73,8 @@ const PlayerForm = props => {
   return(
     <div className="add-player-form">
       <form action="">
-        <input placeholder="Enter a name" type="text"></input>
-      <button>ADD PLAYER</button>
+        <input type="text" placeholder="Enter a name"></input>
+        <input type="submit" value="ADD PLAYER"></input>
       </form>
     </div>
   )
